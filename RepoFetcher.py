@@ -35,6 +35,7 @@ class GitHubFetcher:
             
         repos = response.json()
         return [{
+            'url' : "https://github.com/"+username+"/"+repo['name'],
             'name': repo['name'],
             'description': repo['description'],
             'stars': repo['stargazers_count'],
@@ -86,6 +87,7 @@ def main():
             print(f"   Language: {repo['language']}")
             print(f"   Stars: {repo['stars']}")
             print(f"   Forks: {repo['forks']}")
+            print(f"   url : {repo['url']}")
         
         # Get README for a specific repository
         repo_choice = input("\nEnter repository name to fetch README (or press Enter to skip): ")
